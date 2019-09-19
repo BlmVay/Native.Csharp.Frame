@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Native.Csharp</RootNamespace>
-    <AssemblyName>Native.Csharp</AssemblyName>
+    <AssemblyName>com.mygirl.blm</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -26,7 +26,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
+    <OutputPath>D:\ChromeCoreDownloads\CQP-tuling\酷Q Pro\dev\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StatusExport.tt</DependentUpon>
     </Compile>
+    <Compile Include="App\DoMain\MasterDO.cs" />
+    <Compile Include="App\DoMain\TulingChatRequestDO.cs" />
+    <Compile Include="App\DoMain\TulingChatResponseDO.cs" />
+    <Compile Include="App\EventArgs\BlmOrderArgs.cs" />
+    <Compile Include="App\EventArgs\BlmOrderArgsBase.cs" />
     <Compile Include="App\EventArgs\CqAddFriendRequestEventArgs.cs" />
     <Compile Include="App\EventArgs\CqAddGroupRequestEventArgs.cs" />
     <Compile Include="App\EventArgs\CqAppDisableEventArgs.cs" />
@@ -137,6 +142,11 @@
     <Compile Include="App\Event\Event_AppMain.cs" />
     <Compile Include="App\Event\Event_CqExit.cs" />
     <Compile Include="App\Event\Event_CqStartup.cs" />
+    <Compile Include="App\Event\Event_ExecutiveOrder.cs" />
+    <Compile Include="App\Event\Event_ReceiveFriendMessage.cs" />
+    <Compile Include="App\Event\Event_ReceiveGroupMessage.cs" />
+    <Compile Include="App\GlobalVariable.cs" />
+    <Compile Include="App\Interface\IBlmExecutiveOrder.cs" />
     <Compile Include="App\Interface\ICqAppDisable.cs" />
     <Compile Include="App\Interface\ICqAppEnable.cs" />
     <Compile Include="App\Interface\ICallMenu.cs" />
@@ -160,15 +170,17 @@
     <Compile Include="App\Interface\IReceiveGroupMessage.cs" />
     <Compile Include="App\Interface\IReceiveGroupPrivateMessage.cs" />
     <Compile Include="App\Interface\IReceiveOnlineStatusMessage.cs" />
+    <Compile Include="App\Utils\MessageQueueManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repair\Core\Kernel32.cs" />
     <Compile Include="Repair\Enum\LoadLibraryFlags.cs" />
     <Compile Include="Repair\Helper\AssemblyHelper.cs" />
     <Compile Include="Repair\Helper\ReflectionHelper.cs" />
     <Compile Include="Repair\ModuleInitializer.cs" />
+    <Compile Include="Utlis.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Native.Csharp.json">
+    <None Include="com.mygirl.blm.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -177,6 +189,10 @@
     <ProjectReference Include="..\Native.Csharp.Sdk\Native.Csharp.Sdk.csproj">
       <Project>{797eaebc-4d5b-4eef-87f4-a508fda2cb6a}</Project>
       <Name>Native.Csharp.Sdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Native.Csharp.Tool\Native.Csharp.Tool.csproj">
+      <Project>{9db94cbf-6843-4ea3-9241-769124416fe9}</Project>
+      <Name>Native.Csharp.Tool</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,7 @@ namespace Native.Csharp.App.Event
             container.RegisterType<ICqAppEnable, Event_CqAppEnable> ("应用已被启用");
             // 注入 Type=1004 的回调
             container.RegisterType<ICqAppDisable, Event_CqAppDisable> ("应用将被停用");
+
         }
 
 		/// <summary>
@@ -44,12 +45,15 @@ namespace Native.Csharp.App.Event
 		/// <param name="container"></param>
 		public static void Resolvebackcall (IUnityContainer container)
 		{
+            container.RegisterType<IReceiveFriendMessage, Event_ReceiveFriendMessage>("私聊消息处理");
+
+            container.RegisterType<IReceiveGroupMessage, Event_ReceiveGroupMessage>("群消息处理");
             // 此方法的参数 container 是于插件加载时初始化好的反向注入容器 (IOC 容器)
             // 在此分发需要将指定的对象通过容器进行实例化然后发往对应的位置
             //
             // 说明: 
             //      由于采用了新的容器解析机制, 所以此方法不需要写任何的分发过程
             //      此方法的使用需要熟悉 Unity 框架 (IOC 框架)
-		}
-	}
+        }
+    }
 }
